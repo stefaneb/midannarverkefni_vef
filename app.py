@@ -1,3 +1,4 @@
+import os
 from bottle import run, route, template, static_file, error
 import requests
 
@@ -18,4 +19,4 @@ def company(company):
 def static_server(filename):
     return static_file(filename,root=('./static_files'))
 
-run()
+run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
